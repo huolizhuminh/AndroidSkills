@@ -5,11 +5,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SortTreeNode {
-	SortTreeNode formerNode;
-	SortTreeNode leftNode;
-	SortTreeNode rightNode;
-	boolean isRight = false;
-	int value;
+	public	SortTreeNode formerNode;
+	public	SortTreeNode leftNode;
+	public	SortTreeNode rightNode;
+	public	boolean isRight = false;
+	public	int value;
 
 	public void addNode(int addValue) {
 
@@ -20,12 +20,9 @@ public class SortTreeNode {
 				leftNode = new SortTreeNode();
 				leftNode.formerNode = this;
 				leftNode.value = addValue;
-
 			} else {
 
 				leftNode.addNode(addValue);
-				;
-
 			}
 
 		} else {
@@ -45,7 +42,7 @@ public class SortTreeNode {
 	public int[] getValueArray() {
 
 		ArrayList list = new ArrayList<Integer>();
-		addData(list);
+		addDataToList(list);
 		int[] result = new int[list.size()];
 		for (int i = 0; i < result.length; i++) {
 			result[i] = (Integer) list.get(i);
@@ -54,14 +51,24 @@ public class SortTreeNode {
 
 	}
 
-	private void addData(ArrayList list) {
+	private void addDataToList(ArrayList list) {
 		if (leftNode != null) {
-			leftNode.addData(list);
+			leftNode.addDataToList(list);
 		}
 		list.add(value);
 		if (rightNode != null) {
-			rightNode.addData(list);
+			rightNode.addDataToList(list);
 		}
+	}
+	
+
+	public static SortTreeNode newInstance(int[] datas) {
+		SortTreeNode tree=	new SortTreeNode();
+		tree.value=datas[0];
+		for(int i=1;i<=datas.length-1;i++){
+			tree.addNode(datas[i]);
+		}
+		return tree;
 	}
 
 }
