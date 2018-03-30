@@ -5,7 +5,10 @@ import minhui.demo.arithmatic.ArithMatic1;
 import minhui.demo.arithmatic.ArithMatic3;
 import minhui.demo.arithmatic.ArithMatic4;
 import minhui.demo.arithmatic.ArithMatic5;
+import minhui.demo.arithmatic.ArithMatic7;
 import minhui.demo.arithmatic.ArithMatic8;
+import minhui.demo.mysodusolve.MySoduSolve;
+import minhui.demo.sodusolve.myClass;
 import minhui.demo.sort.HeapSortDemo;
 import minhui.demo.sort.InSertSort;
 import minhui.demo.sort.MaoPaoSort;
@@ -34,8 +37,10 @@ public class MyDemoTest {
 //		test7.startRun();
 //		DemoInterface test7 = new ArithMatic5();
 //		test7.startRun();
-		DemoInterface test8= new ArithMatic8();
-		test8.startRun();
+//		DemoInterface test7= new ArithMatic7();
+//		test7.startRun();
+		DemoInterface test7= new MySoduSolve();
+		test7.startRun();
 	}
 
 }

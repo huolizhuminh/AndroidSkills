@@ -72,10 +72,7 @@ public class Utils {
 				errorIndex = i;
 			}
 		}
-		builder.append(String.valueOf(arrays[to])).append("]")
-	.append("]:result:").append(String.valueOf(result))
-				.append(String.valueOf(errorIndex)).append("eroro").append(String.valueOf(error))
-				;
+		builder.append(String.valueOf(arrays[to])).append("]");
 
 		return builder.toString();
 	}
