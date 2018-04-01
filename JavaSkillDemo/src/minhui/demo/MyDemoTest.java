@@ -7,6 +7,20 @@ import minhui.demo.arithmatic.ArithMatic4;
 import minhui.demo.arithmatic.ArithMatic5;
 import minhui.demo.arithmatic.ArithMatic7;
 import minhui.demo.arithmatic.ArithMatic8;
+import minhui.demo.designtype.abstractfactroy.AbstractFactoryTest;
+import minhui.demo.designtype.adapter.AdapterTest;
+import minhui.demo.designtype.appearance.AppearanceTest;
+import minhui.demo.designtype.bridge.BridgeDemo;
+import minhui.demo.designtype.combination.CombinationTest;
+import minhui.demo.designtype.command.CommandTest;
+import minhui.demo.designtype.decorator.DecoratorTest;
+import minhui.demo.designtype.dutychain.DutyChainTest;
+import minhui.demo.designtype.enjoyelement.EnjoymentTest;
+import minhui.demo.designtype.factroymethod.FactoryMethodTest;
+import minhui.demo.designtype.iterator.IteartorTest;
+import minhui.demo.designtype.prototype.ProtoTypeTest;
+import minhui.demo.designtype.proxy.ProxyTest;
+import minhui.demo.designtype.state.ContextTest;
 import minhui.demo.mysodusolve.MySoduSolve;
 import minhui.demo.sodusolve.myClass;
 import minhui.demo.sort.HeapSortDemo;
@@ -18,28 +32,7 @@ import minhui.demo.sort.QuickSort;
 public class MyDemoTest {
 
 	public static void main(String[] args) {
-//		System.out.println("start");
-//		DemoInterface test1 = new MaoPaoSort();
-//		test1.startRun();
-//
-//		DemoInterface test2 = new InSertSort();
-//		test2.startRun();
-//		//
-//		DemoInterface test3 = new HeapSortDemo();
-//		test3.startRun();
-//		DemoInterface test4 = new QuickSort();
-//		test4.startRun();
-//		DemoInterface test5 = new MergeSort();
-//		test5.startRun();
-//		DemoInterface test6 = new ArithMatic1();
-//		test6.startRun();
-//		DemoInterface test7 = new ArithMatic3();
-//		test7.startRun();
-//		DemoInterface test7 = new ArithMatic5();
-//		test7.startRun();
-//		DemoInterface test7= new ArithMatic7();
-//		test7.startRun();
-		DemoInterface test7= new MySoduSolve();
+		DemoInterface test7= new ContextTest();
 		test7.startRun();
 	}
 
