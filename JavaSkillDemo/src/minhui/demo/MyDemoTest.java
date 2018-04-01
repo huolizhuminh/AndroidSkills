@@ -21,6 +21,8 @@ import minhui.demo.designtype.iterator.IteartorTest;
 import minhui.demo.designtype.prototype.ProtoTypeTest;
 import minhui.demo.designtype.proxy.ProxyTest;
 import minhui.demo.designtype.state.ContextTest;
+import minhui.demo.designtype.templatemethod.TemplateMethodTest;
+import minhui.demo.designtype.visitor.VisitorTest;
 import minhui.demo.mysodusolve.MySoduSolve;
 import minhui.demo.sodusolve.myClass;
 import minhui.demo.sort.HeapSortDemo;
@@ -32,7 +34,7 @@ import minhui.demo.sort.QuickSort;
 public class MyDemoTest {
 
 	public static void main(String[] args) {
-		DemoInterface test7= new ContextTest();
+		DemoInterface test7= new TemplateMethodTest();
 		test7.startRun();
 	}
 
