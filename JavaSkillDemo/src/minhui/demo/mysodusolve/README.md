@@ -1,6 +1,7 @@
 ## 初级玩法
 
 首先看一下数独
+
 ![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/sodu.png)
 
 ### 数独规则
@@ -19,6 +20,7 @@
 * 步骤七：如果发现已经无法选择单元，即单元已经填满，说明完成解数独。
 
 **流程图:**
+
 ![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/shuduprocess.jpg)
 
 总体而言，整个过程是一个选择空单元，求合适解，选择未论证解，论证，论证之后再返回的过程。
