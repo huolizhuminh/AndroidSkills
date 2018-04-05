@@ -1,7 +1,7 @@
 ##初级玩法
 
 首先看一下数独
-![屏幕快照 2018-03-25 下午6.30.52.png](https://upload-images.jianshu.io/upload_images/5222498-22ede8d7175600a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/shuduprocess.jpg)
 
 ###数独规则
 数独的规则比较简单：
