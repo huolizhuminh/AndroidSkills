@@ -7,43 +7,46 @@ import java.util.TreeSet;
 public class MySolutionFinder implements ISoduSolutionFinder {
 	SoduNode[][] soduNodes;
 	int findIndex = 0;
+	public static final int NONE_RESULT = 0;
+	public static final int SINGLE_RESULT = 1;
+	public static final int MULTI_RESULT = 2;
 
 	@Override
 	public int findSolution(char[] charArray) {
 		initData(charArray);
-		System.out.println("");
+		//System.out.println("");
 		if (!findSoduResult()) {
-            
-			return 0;
+
+			return NONE_RESULT;
 		}
-		System.out.println("findSoduResult");
-		a: for (int i = 8; i >= 0; i--) {
-			b: for (int k = 8; k >= 0; k--) {
-				TreeSet<Integer> allValueSet = soduNodes[i][k].getAllValueSet();
-				if (!soduNodes[i][k].needTobeSolve || allValueSet.size() == 1) {
-					if (soduNodes[i][k].needTobeSolve) {
-						soduNodes[i][k].value = 0;
-					}
-					continue b;
+		for (int m = 80; m >= 0; m--) {
+			int i = m / 9;
+			int k = m % 9;
+			TreeSet<Integer> allValueSet = soduNodes[i][k].getAllValueSet();
+			if (!soduNodes[i][k].needTobeSolve || allValueSet.size() == 1) {
+				if (soduNodes[i][k].needTobeSolve) {
+					soduNodes[i][k].value = 0;
 				}
-				TreeSet<Integer> leftAllValue = soduNodes[i][k].getAllValueSet();
-				Iterator<Integer> iterator = leftAllValue.iterator();
-				c: while (iterator.hasNext()) {
-					Integer leftValue = (Integer) iterator.next();
-					if (leftValue == soduNodes[i][k].value) {
-						continue c;
-					}
-					soduNodes[i][k].value = leftValue;
-                    
-					if (findSoduResult()) {
-						return 2;
-					}
-				}
-				soduNodes[i][k].value = 0;
+				continue;
 			}
+			TreeSet<Integer> leftAllValue = soduNodes[i][k].getAllValueSet();
+			Iterator<Integer> iterator = leftAllValue.iterator();
+			a: while (iterator.hasNext()) {
+				Integer leftValue = (Integer) iterator.next();
+				if (leftValue == soduNodes[i][k].value) {
+					continue a;
+				}
+				soduNodes[i][k].value = leftValue;
+
+				if (findSoduResult()) {
+					return MULTI_RESULT;
+				}
+			}
+			soduNodes[i][k].value = 0;
+
 		}
 
-		return 1;
+		return SINGLE_RESULT;
 	}
 
 	private boolean findSoduResult() {
@@ -58,9 +61,9 @@ public class MySolutionFinder implements ISoduSolutionFinder {
 
 	private boolean getNextNodeAndCheck() {
 		findIndex++;
-//		if (findIndex % 100 == 0) {
-//			System.out.println("findIndex" + findIndex);
-//		}
+		// if (findIndex % 100 == 0) {
+		// System.out.println("findIndex" + findIndex);
+		// }
 		SoduNode lastNullNode = getNextNullNode();
 		if (lastNullNode == null) {
 			return true;

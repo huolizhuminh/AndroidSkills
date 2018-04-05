@@ -34,8 +34,8 @@ import minhui.demo.sort.QuickSort;
 public class MyDemoTest {
 
 	public static void main(String[] args) {
-		//DemoInterface test7= new MySoduGenerator();
-		DemoInterface test7= new MySoduSolve();
+		DemoInterface test7= new MySoduGenerator();
+	//	DemoInterface test7= new MySoduSolve();
 		test7.startRun();
 	}
 

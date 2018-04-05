@@ -30,7 +30,7 @@ public class MySoduGenerator implements DemoInterface {
 			initData(charArray);
 			int list = index / 9;
 			int row = index % 9;
-			System.out.println("list:"+list+"row"+row+"index"+index);
+			System.out.println("select fill node:"+"list:"+list+"row"+row+"index"+index);
 			SoduNode currentNode = soduNodes[list][row];
 			Integer[] suitValue = currentNode.getSuitValue();
 			boolean hasOnlySolution = false;
@@ -41,7 +41,6 @@ public class MySoduGenerator implements DemoInterface {
 				charArray[index] = (char) ('0' + suitValue[i]);
 		
 				int solutionNum = getSolutionNum(charArray);
-				System.out.println("solutionNum"+solutionNum+"");
 				if (solutionNum == 1) {
 					break a;
 
@@ -63,10 +62,14 @@ public class MySoduGenerator implements DemoInterface {
 				System.out.println(SoduNode.getNodesValue(soduNodes[i][0].listNode));
 			}
 			System.out.println("*****************************************");
-			System.out.println("\n");
+			System.out.println("");
+			System.out.println("");
 		} while (true);
 		System.out.println("********************result*********************");
 		for (int i = 0; i < 9; i++) {
+			if(i%3==0){
+				System.out.println("********************************************");
+			}
 			System.out.println(SoduNode.getNodesValue(soduNodes[i][0].listNode));
 		}
 	}

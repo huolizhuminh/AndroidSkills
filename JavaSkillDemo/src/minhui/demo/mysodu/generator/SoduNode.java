@@ -88,7 +88,7 @@ public class SoduNode {
 		for (int i = 0; i < listNodes.length; i++) {
 			builder.append(listNodes[i].value).append(" ");
 			if ((i+1) % 3 == 0) {
-				builder.append("*");
+				builder.append("*").append(" ");
 			}
 		}
 		return builder.toString();
