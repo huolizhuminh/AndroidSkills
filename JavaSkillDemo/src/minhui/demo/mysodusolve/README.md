@@ -1,9 +1,9 @@
-##初级玩法
+## 初级玩法
 
 首先看一下数独
-![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/shuduprocess.jpg)
+![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/sodu.jpg)
 
-###数独规则
+### 数独规则
 数独的规则比较简单：
 * 每一行包括了1到9的数字，并且不能重复。
 * 每一列包括了1到9的数字，并且不能重复。
@@ -18,13 +18,13 @@
 * 步骤六：如果步骤二中这个单元的所有可能解为空，则说明上一次随机填入有误，进行步骤五。
 * 步骤七：如果发现已经无法选择单元，即单元已经填满，说明完成解数独。
 
-**流程图：**
-![shuduprocess.jpg](https://upload-images.jianshu.io/upload_images/5222498-76c16c6f44e9603f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+**流程图:**
+![image](https://github.com/huolizhuminh/AndroidSkills/blob/master/JavaSkillDemo/images/shuduprocess.jpg)
 
 总体而言，整个过程是一个选择空单元，求合适解，选择未论证解，论证，论证之后再返回的过程。
-##代码实现
+## 代码实现
 
-###算法的实现步骤
+### 算法的实现步骤
 **输入**
 * 获取一个大小为81的范围为0-9的整型数组，0代表空。
 * 新建一个9*9的二维单元结点数组，每个节点保存节点的位置，并将整形数组的值传给节点。
