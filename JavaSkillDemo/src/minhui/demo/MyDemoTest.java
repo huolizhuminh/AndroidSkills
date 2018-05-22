@@ -25,6 +25,7 @@ import minhui.demo.designtype.templatemethod.TemplateMethodTest;
 import minhui.demo.designtype.visitor.VisitorTest;
 import minhui.demo.mysodu.generator.MySoduGenerator;
 import minhui.demo.mysodusolve.MySoduSolve;
+import minhui.demo.sodusave.SaveDemo;
 import minhui.demo.sort.HeapSortDemo;
 import minhui.demo.sort.InSertSort;
 import minhui.demo.sort.MaoPaoSort;
@@ -34,9 +35,11 @@ import minhui.demo.sort.QuickSort;
 public class MyDemoTest {
 
 	public static void main(String[] args) {
-		DemoInterface test7= new MySoduGenerator();
-	//	DemoInterface test7= new MySoduSolve();
+		//DemoInterface test7= new MySoduGenerator();
+		DemoInterface test7= new SaveDemo();
+		long currentTimeMillis = System.currentTimeMillis();
 		test7.startRun();
+		System.out.println("cost time "+(System.currentTimeMillis()-currentTimeMillis));
 	}
 
 }
