@@ -33,7 +33,7 @@ import static okhttp3.internal.platform.Platform.INFO;
 final class RealCall implements Call {
   final OkHttpClient client;
   final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
-
+  int port;
   /**
    * There is a cycle between the {@link Call} and {@link EventListener} that makes this awkward.
    * This will be set after we create the call instance then create the event listener instance.
@@ -196,7 +196,7 @@ final class RealCall implements Call {
     Interceptor.Chain chain = new RealInterceptorChain(interceptors, null, null, null, 0,
         originalRequest, this, eventListener, client.connectTimeoutMillis(),
         client.readTimeoutMillis(), client.writeTimeoutMillis());
-
-    return chain.proceed(originalRequest);
+    Response proceed = chain.proceed(originalRequest);
+    return proceed;
   }
 }

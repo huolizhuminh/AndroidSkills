@@ -13,6 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.SocketAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -65,6 +70,29 @@ public class MainActivity extends AppCompatActivity {
     private String url22 = "https://upload-images.jianshu.io/upload_images/1727605-18eb64e53510a222?imageMogr2/auto-orient/strip%7CimageView2/2/w/640";
     private String url23 = "https://upload-images.jianshu.io/upload_images/1727605-a3cb232577079511?imageMogr2/auto-orient/";
     private String url24 = "https://upload-images.jianshu.io/upload_images/4834364-3a967eea94aff5df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700";
+    /*private String url16 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526968646740&di=3d8eb6f8f830a6ee5bc21843536bd525&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dc70427ba06f431ada8df4b7a235fc6da%2Fcaef76094b36acaf5b6e54d476d98d1001e99c08.jpg";
+    private String url5 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/22/1830/omg_183039_3474570161_0_192_144.jpg";
+    private String url6 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/21/1840/omg_184240_3353921556_0_192_144.jpg";
+    private String url7 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/22/2310/omg_231255_2306417380_0_192_144.jpg";
+    private String url8 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0930/omg_093831_2796701086_1_192_144.jpg";
+    private String url9 = "http://wa.gtimg.com/website/201805/Sy_AKS_20180521185333874.jpg?md5=b7218bcd338a643449131a0735ed20e7";
+    private String url10 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0720/omg_072828_2491179680_0_192_144.jpg";
+    private String url11 = "http://cdn.read.html5.qq.com/image?src=video_hot&q=5&h=384&w=688&r=0&imageUrl=http%3A%2F%2Fpuui.qpic.cn%2Fqqvideo_ori%2F0%2Fr0652rshw2j_1280_720%2F0";
+    private String url12 = "http://cdn.read.html5.qq.com/image?src=video_hot&q=5&h=384&w=688&r=0&imageUrl=http%3A%2F%2Fpuui.qpic.cn%2Fqqvideo_ori%2F0%2Fk0659n69woh_1280_720%2F0";
+    private String url13 = "http://cdn.read.html5.qq.com/image?src=video_hot&q=5&h=384&w=688&r=0&imageUrl=http%3A%2F%2Fpuui.qpic.cn%2Fqqvideo_ori%2F0%2Fk0659n69woh_1280_720%2F0";
+    private String url14 = "http://cdn.read.html5.qq.com/image?src=video_hot&q=5&h=384&w=688&r=0&imageUrl=http%3A%2F%2Fpuui.qpic.cn%2Fqqvideo_ori%2F0%2Fk0659n69woh_1280_720%2F0";
+    private String url15 = "http://car3.m.autoimg.cn/cardfs/series/g25/M09/27/A9/160x120_0_f40_autohomecar__wKgHIlqnPXuAOGPHAAWfOSHP0EE835.png";
+    //private String url16 = "http://car2.m.autoimg.cn/cardfs/series/g24/M07/9A/FC/160x120_0_f40_autohomecar__wKgHIVqvagaAYsSSAAY10_cPFkc310.png";
+    private String url17 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0810/omg_081656_887992858_1_192_144.jpg";
+    private String url18 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0810/omg_081656_887992858_0_192_144.jpg";
+    private String url19 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0930/omg_093830_2796701086_0_192_144.jpg";
+    private String url20 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0930/omg_093832_2796701086_2_192_144.jpg";
+    private String url21 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/20/1620/omg_162945_1091145829_0_192_144.jpg";
+    private String url22 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/20/1620/omg_162945_1091145829_1_192_144.jpg";
+    private String url23 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/20/1620/omg_162946_1091145829_2_192_144.jpg";
+    private String url24 = "http://zxpic.imtt.qq.com/zxpic_imtt/abstractimage/2018/05/23/0810/omg_081657_887992858_2_192_144.jpg";
+   */ private String textUrl = "https://www.baidu.com";
+
     private GifView gif2;
     private GifView gif3;
     private GifView gif4;
@@ -91,11 +119,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iv19;
     private ImageView iv20;
     private static DateFormat HHMMSSSFormat = new SimpleDateFormat("HH:mm:ss:s", Locale.getDefault());
-    private static DateFormat formatYYMMDDHHMMSSFormat=new SimpleDateFormat("yyyy:MM:dd_HH:mm:ss:s", Locale.getDefault());
+    private static DateFormat formatYYMMDDHHMMSSFormat = new SimpleDateFormat("yyyy:MM:dd_HH:mm:ss:s", Locale.getDefault());
+    private boolean isRequest;
+    private long last = System.currentTimeMillis();
+
     public static String formatHHMMSSMM(long time) {
         Date date = new Date(time);
         return HHMMSSSFormat.format(date);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.request).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                long current = System.currentTimeMillis();
+                if (current - last < 2000) {
+                    return;
+                }
+                last = current;
+                isRequest = true;
                 gif1.setMovie(null);
                 gif2.setMovie(null);
                 gif3.setMovie(null);
@@ -127,7 +165,27 @@ public class MainActivity extends AppCompatActivity {
                 iv18.setImageBitmap(null);
                 iv19.setImageBitmap(null);
                 iv20.setImageBitmap(null);
+                Log.d(TAG, "onclick");
+                result.setText(null);
                 threadPoolExecutor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        requestText(textUrl,result);
+                    }
+                });
+              /*  threadPoolExecutor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        requestImage(url16, iv12);
+                    }
+                });*/
+              /*  threadPoolExecutor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        requestImage(url7, iv3);
+                    }
+                });*/
+              /*  threadPoolExecutor.execute(new Runnable() {
                     @Override
                     public void run() {
                         requestGif(url1, gif1);
@@ -270,9 +328,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         requestImage(url24, iv20);
                     }
-                });
-
-           result.setText(formatHHMMSSMM(System.currentTimeMillis()));
+                });*/
+             //   result.setText(formatHHMMSSMM(current));
             }
         });
         result = findViewById(R.id.result);
@@ -301,13 +358,46 @@ public class MainActivity extends AppCompatActivity {
         iv19 = findViewById(R.id.iv_19);
         iv20 = findViewById(R.id.iv_20);
         handler = new Handler();
-        threadPoolExecutor = new ThreadPoolExecutor(8, 10, 15, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1000));
+        threadPoolExecutor = new ThreadPoolExecutor(8, 8, 15, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1000));
     }
 
-    private void requestGif(String url, final GifView view) {
-        if (client == null) {
-            client = new OkHttpClient.Builder().build();
+
+    private void requestText(String url, final TextView resultView) {
+       initClient();
+        final Request request = new Request.Builder()
+                .url(url)
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            // final String string = response.body().string();
+            final byte[] bytes = response.body().bytes();
+            long tag = 0;
+            for (int i = 0; i < bytes.length; i++) {
+                tag = tag + bytes[i] * bytes[i];
+            }
+
+            Log.d(TAG, "receive byte tag " + tag + " length " + bytes.length + " port" + request.port);
+            //   final Movie movie = Movie.decodeByteArray(bytes, 0, bytes.length);
+            final String resultStr = new String(bytes, 0, bytes.length, "utf-8");
+            //   Log.d(TAG,"result is "+string);
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    // Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    resultView.setText(resultStr);
+
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(TAG + request.port, e.getMessage());
         }
+
+    }
+
+
+    private void requestGif(String url, final GifView view) {
+        initClient();
 
         final Request request = new Request.Builder()
                 .url(url)
@@ -320,7 +410,7 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < bytes.length; i++) {
                 tag = tag + bytes[i] * bytes[i];
             }
-            Log.d(TAG, "receive byte tag " + tag + " length " + bytes.length);
+            Log.d(TAG, "receive byte tag " + tag + " length " + bytes.length + " port" + request.port);
             final Movie movie = Movie.decodeByteArray(bytes, 0, bytes.length);
             //   Log.d(TAG,"result is "+string);
             handler.post(new Runnable() {
@@ -333,15 +423,29 @@ public class MainActivity extends AppCompatActivity {
             });
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, e.getMessage());
+            Log.e(TAG + request.port, e.getMessage());
         }
 
     }
 
-    private void requestImage(String url, final ImageView view) {
+    private void initClient() {
         if (client == null) {
-            client = new OkHttpClient.Builder().build();
+            InetSocketAddress inetSocketAddress=null;
+            try {
+                inetSocketAddress = new InetSocketAddress(InetAddress.getByName("192.168.31.240"), 8889);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+            client = new OkHttpClient
+                    .Builder()
+                //   .proxy(new Proxy(Proxy.Type.SOCKS, inetSocketAddress))
+              //      .proxy(new Proxy(Proxy.Type.HTTP, inetSocketAddress))
+                    .build();
         }
+    }
+
+    private void requestImage(String url, final ImageView view) {
+
 
         final Request request = new Request.Builder()
                 .url(url)
@@ -354,7 +458,8 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < bytes.length; i++) {
                 tag = tag + bytes[i] * bytes[i];
             }
-            Log.d(TAG, "receive byte tag " + tag + " length " + bytes.length);
+            Log.d(TAG, "receive byte tag " + tag + " length " + bytes.length + "port :" + response.request().port);
+            Log.d(TAG, request.port + "  url:  " + url);
             final Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
            /* final Movie movie = Movie.decodeByteArray(bytes, 0, bytes.length);
             //   Log.d(TAG,"result is "+string);
@@ -364,12 +469,13 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     // Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                     view.setImageBitmap(bitmap);
+                    isRequest = false;
 
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, e.getStackTrace().toString());
+            Log.e(TAG, request.port + "  error is " + e.getMessage());
         }
 
     }

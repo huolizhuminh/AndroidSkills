@@ -126,7 +126,9 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     if (index >= interceptors.size()) throw new AssertionError();
 
     calls++;
+    if(connection!=null&&connection.port!=0){
 
+    }
     // If we already have a stream, confirm that the incoming request will use it.
     if (this.httpCodec != null && !this.connection.supportsUrl(request.url())) {
       throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)

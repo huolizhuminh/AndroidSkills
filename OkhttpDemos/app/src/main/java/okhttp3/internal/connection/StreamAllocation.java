@@ -91,6 +91,7 @@ public final class StreamAllocation {
   private boolean released;
   private boolean canceled;
   private HttpCodec codec;
+  public int port;
 
   public StreamAllocation(ConnectionPool connectionPool, Address address, Call call,
       EventListener eventListener, Object callStackTrace) {

@@ -113,6 +113,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
 
   /** Nanotime timestamp when {@code allocations.size()} reached zero. */
   public long idleAtNanos = Long.MAX_VALUE;
+  public int port;
 
   public RealConnection(ConnectionPool connectionPool, Route route) {
     this.connectionPool = connectionPool;
@@ -239,6 +240,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     rawSocket.setSoTimeout(readTimeout);
     try {
       Platform.get().connectSocket(rawSocket, route.socketAddress(), connectTimeout);
+      port = rawSocket.getLocalPort();
     } catch (ConnectException e) {
       ConnectException ce = new ConnectException("Failed to connect to " + route.socketAddress());
       ce.initCause(e);
@@ -377,6 +379,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
       sink.timeout().timeout(writeTimeout, MILLISECONDS);
       tunnelConnection.writeRequest(tunnelRequest.headers(), requestLine);
       tunnelConnection.finishRequest();
+      tunnelRequest.port=port;
       Response response = tunnelConnection.readResponseHeaders(false)
           .request(tunnelRequest)
           .build();

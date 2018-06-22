@@ -33,8 +33,9 @@ public final class Request {
   final Object tag;
 
   private volatile CacheControl cacheControl; // Lazily initialized.
+  public int port;
 
-  Request(Builder builder) {
+    Request(Builder builder) {
     this.url = builder.url;
     this.method = builder.method;
     this.headers = builder.headers.build();
